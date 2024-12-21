@@ -1,0 +1,7 @@
+streamlit
+streamlit-cookies=manager
+google_generativeai
+reportlab
+pillow
+streamlit-drawable-canvas
+firebase-admin
