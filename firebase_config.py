@@ -8,7 +8,7 @@ import streamlit as st
 
 # Initialize Firebase
 if not firebase_admin._apps:
-    cred = credentials.Certificate(st.secrets["firebase"]["json_path"])
+    cred = credentials.Certificate(st.secrets["json_path"])
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
