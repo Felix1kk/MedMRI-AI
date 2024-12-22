@@ -1,5 +1,6 @@
 
 import firebase_admin
+import json
 from firebase_admin import credentials, firestore
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
@@ -8,7 +9,8 @@ import streamlit as st
 
 # Initialize Firebase
 if not firebase_admin._apps:
-    cred = credentials.Certificate(st.secrets["json_path"])
+    firebase_json = json.loads(st.secrets["firebase"]["json"])
+    cred = credentials.Certificate(firebase_json)
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
