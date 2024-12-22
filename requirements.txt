@@ -1,5 +1,5 @@
 streamlit
-streamlit-cookies=manager
+streamlit-cookies-manager
 google_generativeai
 reportlab
 pillow
