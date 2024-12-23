@@ -2,8 +2,6 @@
 import streamlit as st
 from streamlit_cookies_manager import EncryptedCookieManager
 from firebase_config import logout_user
-firebase_api_key = st.secrets["firebase"]["api_key"]
-firebase_password = st.secrets["firebase"]["password"]
 
 st.set_page_config(
     page_title="MedMRI AI",
@@ -21,9 +19,12 @@ footer .stButton {display: none;}  /* Hide the Streamlit logo */
 footer .stMetrics {display: none;}  /* Hide the Streamlit logo */
 </style>
 """
-
 # Inject custom CSS
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+
+firebase_api_key = st.secrets["firebase"]["api_key"]
+firebase_password = st.secrets["firebase"]["password"]
 
 # Initialize cookies
 cookies = EncryptedCookieManager(
