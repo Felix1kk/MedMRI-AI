@@ -1,6 +1,20 @@
 import streamlit as st
 from firebase_config import register_user
 
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+.stApp {padding-top: 0;}
+footer .stButton {display: none;}  /* Hide the Streamlit logo */
+footer .stMetrics {display: none;}  /* Hide the Streamlit logo */
+</style>
+"""
+
+# Inject custom CSS
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 def register_page(cookies):
     st.title("Register")
     email = st.text_input("Email")
