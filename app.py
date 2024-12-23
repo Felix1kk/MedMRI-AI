@@ -39,12 +39,9 @@ current_page = cookies.get("current_page", "Login")
 user_id = cookies.get("user_id")
 
 # Sync session state with cookies
-if "logged_in" not in st.session_state:
-    st.session_state["logged_in"] = logged_in
-if "page" not in st.session_state:
-    st.session_state["page"] = current_page
-if "user_id" not in st.session_state:
-    st.session_state["user_id"] = user_id
+st.session_state["logged_in"] = st.session_state.get("logged_in", logged_in)
+st.session_state["page"] = st.session_state.get("page", current_page)
+st.session_state["user_id"] = st.session_state.get("user_id", user_id)
 
 # Page routing
 if st.session_state["page"] == "Login":
@@ -73,13 +70,19 @@ with st.sidebar:
             st.rerun()
     else:
         if st.button("Logout"):
+            # Ensure user logout logic is consistent
             if st.session_state.get("user_id"):
-                logout_user(st.session_state["user_id"])  # Update the logout time
+                logout_user(st.session_state["user_id"])  # Update the logout time (if applicable)
             cookies["logged_in"] = str(False)
             cookies["current_page"] = "Login"
             cookies["user_id"] = ""
             cookies.save()
-            st.session_state.clear()
+
+            # Clear session state
+            for key in list(st.session_state.keys()):
+                del st.session_state[key]
+
+            # Redirect to login page
             st.rerun()
 
 
