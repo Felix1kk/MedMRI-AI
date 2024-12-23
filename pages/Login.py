@@ -1,9 +1,10 @@
 
 import streamlit as st
 from firebase_config import authenticate_user
+
 st.set_page_config(
-    page_title="Brain Tumor Detection",
-    page_icon="🧠"
+    page_title="Login",
+    page_icon="☢️"
 )
 
 # Custom CSS to hide Streamlit icon, GitHub, and Fork icons
@@ -20,6 +21,7 @@ footer .stMetrics {display: none;}  /* Hide the Streamlit logo */
 
 # Inject custom CSS
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 def login_page(cookies):
     st.title("Login")
     email = st.text_input("Email")
