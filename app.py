@@ -73,14 +73,16 @@ with st.sidebar:
             st.rerun()
     else:
         if st.button("Logout"):
-            if st.session_state.get("user_id"):
-                logout_user(st.session_state["user_id"])  # Update the logout time
+            user_id = st.session_state.get("user_id")
+            if user_id:
+                logout_user(user_id)  # Update the logout time
             cookies["logged_in"] = str(False)
             cookies["current_page"] = "Login"
             cookies["user_id"] = ""
             cookies.save()
-            st.session_state.clear()
+            st.session_state.clear()  # Clear session state after logout actions
             st.rerun()
+
 
 
 
