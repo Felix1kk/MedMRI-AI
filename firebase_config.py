@@ -57,8 +57,9 @@ def logout_user(user_id):
         logout_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         user_ref = db.collection("users").document(user_id)
         user_ref.update({"last_logout_time": logout_time})
+        print(f"User {user_id} logged out successfully at {logout_time}.")
     except Exception as e:
-        print(f"Error updating logout time: {e}")
-
+        print(f"Error updating logout time for user {user_id}: {e}")
+        raise
 
 
