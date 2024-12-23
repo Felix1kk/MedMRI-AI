@@ -5,6 +5,26 @@ from firebase_config import logout_user
 firebase_api_key = st.secrets["firebase"]["api_key"]
 firebase_password = st.secrets["firebase"]["password"]
 
+st.set_page_config(
+    page_title="MedMRI AI",
+    page_icon="☢️"
+)
+
+# Custom CSS to hide Streamlit icon, GitHub, and Fork icons
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+.stApp {padding-top: 0;}
+footer .stButton {display: none;}  /* Hide the Streamlit logo */
+footer .stMetrics {display: none;}  /* Hide the Streamlit logo */
+</style>
+"""
+
+# Inject custom CSS
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 # Initialize cookies
 cookies = EncryptedCookieManager(
     prefix=firebase_api_key,
