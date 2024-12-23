@@ -9,7 +9,7 @@ import google.generativeai as genai
 import io
 
 st.set_page_config(
-    page_title="Brain Tumor Detection",
+    page_title="MedMRI AI",
     page_icon="☢️"
 )
 
