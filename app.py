@@ -3,11 +3,6 @@ import streamlit as st
 from streamlit_cookies_manager import EncryptedCookieManager
 from firebase_config import logout_user
 
-st.set_page_config(
-    page_title="MedMRI AI",
-    page_icon="☢️"
-)
-
 # Custom CSS to hide Streamlit icon, GitHub, and Fork icons
 hide_streamlit_style = """
 <style>
