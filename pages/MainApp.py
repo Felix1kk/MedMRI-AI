@@ -28,7 +28,7 @@ def main_app():
         st.session_state["page"] = "Login"
         st.rerun()
 
-  st.title("Top G MedMRI AI ☢️")
+  st.title("MedMRI AI ☢️")
   st.subheader(f"Welcome, {st.session_state.get('username', 'User')}!")
 
   # Add the brain tumor detection functionality here.
